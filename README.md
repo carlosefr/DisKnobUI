@@ -19,7 +19,7 @@ The motor that drives the platters on a hard-drive is a stepper motor, which mea
 
 ![waveforms](https://raw.github.com/carlosefr/DisKnobUI/master/waveforms.png)
 
-If we choose one of the motor's terminals as a reference point (and connect it to ground), we can use a voltage parator (OpAmp) for each of the remaining three terminals to output HIGH if its voltage is above the reference (ground) level, or LOW if it is below.
+If we choose one of the motor's terminals as a reference point (and connect it to ground), we can use a voltage comparator (OpAmp) for each of the remaining three terminals to output HIGH if its voltage is above the reference (ground) level, or LOW if it is below.
 
 ![circuit](https://raw.github.com/carlosefr/DisKnobUI/master/circuit.png)
 
@@ -29,11 +29,11 @@ The sequence of the outputs is unique for clockwise motion, and for counter-cloc
 Hardware
 ========
 
-The operational amplifiers used are LM324N (four OpAmps in one package), but should work with any other equivalent devices. These work with both Vcc=3.3V (when using the Raspberry Pi) or Vcc=5V (when using the Arduino), and can handle negative voltages (voltages below ground) up to the magnitude of Vcc.
+The operational amplifiers used as voltage comparators are LM324N (four OpAmps in one package), but it should work with any other equivalent part, as long as it works with both Vcc=3.3V (when using the Raspberry Pi) or Vcc=5V (when using the Arduino), and can handle negative voltages (voltages below ground level) up to the magnitude of Vcc:
 
   http://www.ti.com/product/lm324-n
 
-The HIGH output of these parts are somewhat below Vcc, but work fine. If you wish to adapt this to something other than an Arduino or Raspberry Pi, you may need a rail-to-rail OpAmp package, such as this:
+The HIGH output of these parts is somewhat below Vcc, but should work fine as it is still read as an HIGH by the Arduino and the Raspberry Pi. If you wish to adapt this to some other board, you may need a rail-to-rail OpAmp package, such as the TLV2374:
 
   http://www.ti.com/product/tlv2374
 
