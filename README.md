@@ -48,20 +48,12 @@ The Processing application requires the UDP library, which can be found at:
 
   http://ubaa.net/shared/processing/udp/
 
-Screenshots
-===========
+Video
+=====
 
 You can watch a video of it working (using the Raspberry Pi program) here:
 
   http://videos.sapo.pt/TpU7DdsYIizWhWiggEsd
-
-This is what it looks like on a Mac:
-
-![screenshot](https://raw.github.com/carlosefr/DisKnobUI/master/screenshot.png)
-
-And this is what the breadboard assembly looks like (with an Arduino Micro):
-
-![breadboard](https://raw.github.com/carlosefr/DisKnobUI/master/breadboard.jpg)
 
 Author
 ======
