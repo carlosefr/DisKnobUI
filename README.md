@@ -3,7 +3,9 @@ DisKnobUI
 
 Using an old hard-disk as a rotary encoder: Shows the logo for SAPO (http://www.sapo.pt) with rotating eyes based on events coming from an Arduino over the serial port, or from a Raspberry Pi over UDP multicast.
 
-![screenshot](https://raw.github.com/carlosefr/DisKnobUI/master/screenshot.png)
+This is a rehash of an old implementation that I did back in 2009, based on this instructable:
+
+  http://www.instructables.com/id/HDDJ-Turning-an-old-hard-disk-drive-into-a-rotary/
 
 How it Works
 ============
@@ -18,15 +20,30 @@ If we choose one of the motor's terminals as a reference point (and connect it t
 
 The sequence of the outputs is unique for clockwise motion, and for counter-clockwise motion. By identifying the sequence, an Arduino or Raspberry Pi can decide in which direction the platters are being rotated. The faster the motion, the faster the sequence.
 
-Dependencies
-============
+Hardware
+========
 
-The Raspberry Pi "driver" requires the RPi.GPIO library, which can be found in the Rasbpian repositories. The Processing application requires the UDP library, which can be found at:
+The operational amplifiers used are LM324N (four OpAmps in one package), but should work with any other equivalent devices. These work with both 3.3V (when using the Raspberry PI) and 5V (when using the Arduino).
+
+  http://www.ti.com/product/lm324-n
+
+Software
+========
+
+The Arduino program requires nothing more than the standard Arduino distribution. The Raspberry Pi Python driver requires the ```RPi.GPIO``` library, which can be found in the Raspbian repositiories or at:
+
+  https://pypi.python.org/pypi/RPi.GPIO
+
+The Processing application requires the UDP library, which can be found at:
 
   http://ubaa.net/shared/processing/udp/
 
 Media
 =====
+
+This is what it looks like:
+
+![screenshot](https://raw.github.com/carlosefr/DisKnobUI/master/screenshot.png)
 
 You can watch a video of it working (using a Raspberry Pi) here:
 
