@@ -55,9 +55,13 @@ You can watch a video of it working (using the Raspberry Pi program) here:
 
   http://videos.sapo.pt/TpU7DdsYIizWhWiggEsd
 
-And this is what it looks like on a Mac:
+This is what it looks like on a Mac:
 
 ![screenshot](https://raw.github.com/carlosefr/DisKnobUI/master/screenshot.png)
+
+And this is what the breadboard assembly looks like (with an Arduino Micro):
+
+![breadboard](https://raw.github.com/carlosefr/DisKnobUI/master/breadboard.jpg)
 
 Author
 ======
