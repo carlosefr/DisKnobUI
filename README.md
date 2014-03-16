@@ -2,10 +2,12 @@ DisKnobUI
 =========
 
 An Arduino program to use an old hard-drive as a rotary input device.
-A Python program for the Raspberry Pi to do the same thing, but sending data over UDP multicast.
-A Processing application that gets events from either two programs and shows the frog logo from SAPO (http://www.sapo.pt) with rotating eyes.
 
-This is a much more precise and reliable version of an old implementation that I did back in 2009, based on this instructable:
+A Python program for the Raspberry Pi to do the same thing, but sending data over UDP multicast.
+
+A Processing application that gets events from either two programs and shows the frog logo from [SAPO](http://www.sapo.pt) with rotating eyes.
+
+This is a much more precise and reliable (and less hackish) version of an old implementation that I did back in 2009, based on this instructable:
 
   http://www.instructables.com/id/HDDJ-Turning-an-old-hard-disk-drive-into-a-rotary/
 
@@ -13,11 +15,11 @@ This is a much more precise and reliable version of an old implementation that I
 How it Works
 ============
 
-The motor that drives the platters on a hard-drive is a stepper motor, which means it has four coils that, when energized in the proper sequence, attract the magnet in the core making it rotate. If the platters are spun manually, the motor acts as a generator and a (sinusoidal) varying voltage is induced in each of the four coils.
+The motor that drives the platters on a hard-drive is a stepper motor, which means it has four coils that, when energized in the proper sequence, attract the magnet in the core making it rotate. If the platters are spun manually, the motor acts as a generator and a (sinusoidal) voltage is induced in each of the four coils.
 
 ![waveforms](https://raw.github.com/carlosefr/DisKnobUI/master/waveforms.png)
 
-If we choose one of the motor's terminals as a reference point (and connect it to ground), we can use a comparator for each of the remaining three terminals to output HIGH if its voltage is above the reference (ground), or LOW if it's below.
+If we choose one of the motor's terminals as a reference point (and connect it to ground), we can use a voltage parator (OpAmp) for each of the remaining three terminals to output HIGH if its voltage is above the reference (ground) level, or LOW if it is below.
 
 ![circuit](https://raw.github.com/carlosefr/DisKnobUI/master/circuit.png)
 
@@ -27,16 +29,20 @@ The sequence of the outputs is unique for clockwise motion, and for counter-cloc
 Hardware
 ========
 
-The operational amplifiers used are LM324N (four OpAmps in one package), but should work with any other equivalent devices. These work with both Vcc=3.3V (when using the Raspberry PI) or Vcc=5V (when using the Arduino), and can handle negative voltages up to the magnitude of Vcc.
+The operational amplifiers used are LM324N (four OpAmps in one package), but should work with any other equivalent devices. These work with both Vcc=3.3V (when using the Raspberry Pi) or Vcc=5V (when using the Arduino), and can handle negative voltages (voltages below ground) up to the magnitude of Vcc.
 
   http://www.ti.com/product/lm324-n
+
+The HIGH output of these parts are somewhat below Vcc, but work fine. If you wish to adapt this to something other than an Arduino or Raspberry Pi, you may need a rail-to-rail OpAmp package, such as this:
+
+  http://www.ti.com/product/tlv2374
 
 Software
 ========
 
 The Arduino program uses no external libraries and requires nothing more than the standard Arduino distribution.
 
-The Raspberry Pi program requires Python 2.7 and the ```RPi.GPIO``` library, which can both be found in the Raspbian repositiories.
+The Raspberry Pi program requires Python 2.7 and the ```RPi.GPIO``` library, which can both be found in the Raspbian repositories.
 
 The Processing application requires the UDP library, which can be found at:
 
@@ -45,10 +51,15 @@ The Processing application requires the UDP library, which can be found at:
 Screenshots
 ===========
 
-This is what it looks like:
-
-![screenshot](https://raw.github.com/carlosefr/DisKnobUI/master/screenshot.png)
-
 You can watch a video of it working (using the Raspberry Pi program) here:
 
   http://videos.sapo.pt/cefrodrigues
+
+And this is what it looks like on a Mac:
+
+![screenshot](https://raw.github.com/carlosefr/DisKnobUI/master/screenshot.png)
+
+Author
+======
+
+* Carlos Rodrigues <cefrodrigues@gmail.com>
