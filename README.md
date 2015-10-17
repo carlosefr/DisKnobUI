@@ -5,10 +5,12 @@ This repository contains software to use an old-hard drive as a rotary input dev
 
 * An Arduino program that sends data over the serial port (```DisKnob.ino```).
 * A Raspberry Pi program that sends data over UDP multicast (```disknob.py```).
-* A Processing application that shows the logo from [SAPO](http://www.sapo.pt) with rotating eyes (```DisKnobUI.pde```).
+* A Processing application that shows the old logo from [SAPO](http://www.sapo.pt) with rotating eyes (```DisKnobUI.pde```).
 
 This is a much more precise, reliable, and less *hackish* version of an old project I made back in 2009 based on an [instructable](http://www.instructables.com/id/HDDJ-Turning-an-old-hard-disk-drive-into-a-rotary/) found online.
 
+![screenshot](https://raw.github.com/carlosefr/DisKnobUI/master/screenshot.png)
+[[video](https://www.youtube.com/watch?v=MvpPVjJnbao)]
 
 How it Works
 ============
@@ -41,13 +43,6 @@ Software
 * The Arduino program uses no external libraries and requires nothing more than the standard Arduino distribution.
 * The Raspberry Pi program requires Python 2.7 and the ```RPi.GPIO``` library, which can both be found in the Raspbian repositories.
 * The Processing application requires the [UDP library](http://ubaa.net/shared/processing/udp/).
-
-Video
-=====
-
-You can watch a video of it working (using the Raspberry Pi program) here:
-
-  http://videos.sapo.pt/TpU7DdsYIizWhWiggEsd
 
 Author
 ======
